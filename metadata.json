@@ -1,0 +1,5 @@
+{
+  "name": "LyricSync AI",
+  "description": "Real-time audio transcription and lyric extraction powered by Gemini 2.5 Flash. Upload your music and get instant, accurate transcripts.",
+  "requestFramePermissions": []
+}
