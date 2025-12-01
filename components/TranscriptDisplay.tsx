@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-interface LrcEditorProps {
-  transcript: string | null;
-  isLoading: boolean;
-  onAnalyze: () => void;
-  fileName?: string;
-}
-
-const TranscriptDisplay: React.FC<LrcEditorProps> = ({ transcript, isLoading, onAnalyze, fileName }) => {
+const TranscriptDisplay = ({ transcript, isLoading, onAnalyze, fileName }) => {
   const [content, setContent] = useState('');
 
   useEffect(() => {

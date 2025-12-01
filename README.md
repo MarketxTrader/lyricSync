@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# LyricSync AI
 
-# Run and deploy your AI Studio app
+LyricSync AI is a modern web application that uses Google's Gemini 2.5 Flash model to automatically generate synchronized lyrics (LRC format) from audio files.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1Gh5o96JMSFiVzq6g6yL3nzmCOiE3D-IY
+- **Drag & Drop Interface**: Easily upload MP3, WAV, or AAC files.
+- **AI-Powered Transcription**: Utilizes Gemini 2.5 Flash for fast and accurate lyric generation.
+- **LRC Editor**: View, edit, and copy synchronized lyrics.
+- **Integrated Player**: Preview your audio track while editing lyrics.
+- **LRC Export**: Download the result as a standard `.lrc` file for use in media players.
 
-## Run Locally
+## Setup
 
-**Prerequisites:**  Node.js
+1. **Environment Variables**:
+   You must provide a valid API Key for Google GenAI.
+   Create an environment variable named `API_KEY` with your key.
 
+2. **Running the App**:
+   This project is built with React. Ensure you have the necessary dependencies installed if building locally, or run within a compatible environment that supports the Google GenAI SDK.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Technologies
+
+- React 19
+- TypeScript
+- Tailwind CSS
+- Google GenAI SDK (Gemini 2.5 Flash)
+- FontAwesome
+
+## License
+
+MIT

@@ -8,7 +8,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
  * @param mimeType The mime type of the audio.
  * @returns The transcribed text in LRC format.
  */
-export const transcribeAudio = async (audioBase64: string, mimeType: string): Promise<string> => {
+export const transcribeAudio = async (audioBase64, mimeType) => {
   try {
     const model = 'gemini-2.5-flash';
     // Instructions focused on LRC format generation

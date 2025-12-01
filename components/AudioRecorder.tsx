@@ -1,15 +1,10 @@
 import React, { useRef, useState } from 'react';
 
-interface FileUploaderProps {
-  onFileSelect: (file: File) => void;
-  isLoading: boolean;
-}
-
-const AudioRecorder: React.FC<FileUploaderProps> = ({ onFileSelect, isLoading }) => {
+const AudioRecorder = ({ onFileSelect, isLoading }) => {
   const [dragActive, setDragActive] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef(null);
 
-  const handleDrag = (e: React.DragEvent) => {
+  const handleDrag = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.type === "dragenter" || e.type === "dragover") {
@@ -19,7 +14,7 @@ const AudioRecorder: React.FC<FileUploaderProps> = ({ onFileSelect, isLoading })
     }
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
@@ -29,14 +24,14 @@ const AudioRecorder: React.FC<FileUploaderProps> = ({ onFileSelect, isLoading })
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     e.preventDefault();
     if (e.target.files && e.target.files[0]) {
       validateAndUpload(e.target.files[0]);
     }
   };
 
-  const validateAndUpload = (file: File) => {
+  const validateAndUpload = (file) => {
     if (isLoading) return;
     
     if (!file.type.startsWith('audio/')) {

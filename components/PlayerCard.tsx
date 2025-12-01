@@ -1,13 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-interface PlayerCardProps {
-  file: File | null;
-  audioUrl: string | null;
-  onChangeFile: () => void;
-}
-
-const PlayerCard: React.FC<PlayerCardProps> = ({ file, audioUrl, onChangeFile }) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
+const PlayerCard = ({ file, audioUrl, onChangeFile }) => {
+  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -41,7 +35,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({ file, audioUrl, onChangeFile })
     }
   };
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = (e) => {
     if (audioRef.current) {
       const time = parseFloat(e.target.value);
       audioRef.current.currentTime = time;
@@ -49,7 +43,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({ file, audioUrl, onChangeFile })
     }
   };
 
-  const formatTime = (time: number) => {
+  const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
